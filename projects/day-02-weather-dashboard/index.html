@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🌤️ Weather Dashboard</h1>
+    </header>
+
+    <div class="search-container">
+      <input
+        type="text"
+        class="search-box"
+        id="cityInput"
+        placeholder="Enter city name..."
+      />
+      <button class="search-btn" onclick="searchWeather()">Search</button>
+      <button class="location-btn" onclick="getCurrentLocation()">📍 Use My Location</button>
+    </div>
+
+    <div id="loadingIndicator" class="loading" style="display: none;">
+      <div class="pulse">🌍 Loading weather data...</div>
+    </div>
+
+    <div id="errorMessage" class="error" style="display: none;"></div>
+
+    <div id="weatherContent" style="display: none;">
+      <div class="weather-grid">
+        <div class="main-weather fade-in">
+          <div class="weather-info">
+            <div class="location" id="currentLocation">
+              📍 <span id="locationName"></span>
+            </div>
+            <div class="weather-icon" id="weatherIcon">☀️</div>
+            <div class="current-temp" id="currentTemp">--°</div>
+            <div class="weather-desc" id="weatherDesc">--</div>
+            <button class="add-city-btn" onclick="saveCurrentCity()">💾 Save City</button>
+          </div>
+
+          <div class="weather-details" id="weatherDetails">
+            <!-- Weather details will be populated here -->
+          </div>
+        </div>
+
+        <div class="side-panel">
+          <div class="hourly-forecast">
+            <div class="panel-title">Hourly Forecast</div>
+            <div class="hourly-items" id="hourlyForecast">
+              <!-- Hourly forecast items will be populated here -->
+            </div>
+          </div>
+
+          <div class="saved-cities">
+            <div class="panel-title">Saved Cities</div>
+            <div class="saved-cities-list" id="savedCitiesList">
+              <!-- Saved cities will be populated here -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="forecast-section">
+        <div class="forecast-title">7-Day Forecast</div>
+        <div class="forecast-grid" id="forecastGrid">
+          <!-- Forecast items will be populated here -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
